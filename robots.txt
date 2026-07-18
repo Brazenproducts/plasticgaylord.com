@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://plasticgaylord.com/sitemap.xml
