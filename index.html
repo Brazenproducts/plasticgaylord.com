@@ -58,38 +58,37 @@ header h1{font-size:1.1rem;color:#1a5c2a;font-weight:700;letter-spacing:1px}
 footer{background:#0e3318;padding:22px 40px;text-align:center;color:#4a8a5a;font-size:0.82rem}
 footer a{color:#6ad46a;text-decoration:none}
 @media(max-width:600px){.hero h2{font-size:1.8rem}.photo-strip{grid-template-columns:1fr}.photo-strip img{height:200px}}
+
   
     /* ===== MOBILE NAV FIX ===== */
     html, body { overflow-x: hidden; max-width: 100%; }
     @media (max-width: 768px) {
-      /* All top-bar containers */
       nav, header {
         display: flex !important;
-        flex-wrap: nowrap !important;
         align-items: center !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important;
         padding: 0 16px !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        min-height: 56px !important;
+        min-height: 52px !important;
+        gap: 0 !important;
       }
-      /* Logo / brand text — keep visible, truncate if needed */
-      nav h1, header h1,
-      .nav-logo, .nav-brand, .logo, .brand {
+      /* Hide ALL direct children of nav/header by default */
+      nav > *, header > * {
+        display: none !important;
+      }
+      /* Then show ONLY the logo/brand element */
+      nav > *:first-child, header > *:first-child,
+      nav .nav-logo, nav .nav-brand, nav h1,
+      header .logo, header .brand, header h1,
+      header > div:first-child {
+        display: block !important;
         font-size: 1rem !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        max-width: 65vw !important;
-        flex-shrink: 1 !important;
+        max-width: 90vw !important;
       }
-      /* Hide all nav link lists */
-      .nav-links, .nav-items { display: none !important; }
-      /* Hide inline CTA buttons in nav/header on mobile */
-      nav a.nav-cta, nav a.nav-quote,
-      header a.cta-btn, header a.cta,
-      header .nav a, header .cta,
-      nav .nav-cta { display: none !important; }
     }
 
   </style>
